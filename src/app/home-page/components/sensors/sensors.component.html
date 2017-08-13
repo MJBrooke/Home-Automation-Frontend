@@ -5,8 +5,5 @@
 </div>
 
 <div class="row">
-  <app-sensor></app-sensor>
-  <app-sensor></app-sensor>
-  <app-sensor></app-sensor>
-  <app-sensor></app-sensor>
+  <app-sensor *ngFor="let component of sensorsModel?.components" [sensorModel]="component"></app-sensor>
 </div>

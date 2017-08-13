@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SensorsService} from './sensors.service';
 
 @Component({
   selector: 'app-sensors',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SensorsComponent implements OnInit {
 
-  constructor() { }
+  sensorsModel: SensorsModel;
+
+  constructor(private sensorsService: SensorsService) { }
 
   ngOnInit() {
+    this.sensorsService.getSensors()
+      .subscribe(
+        (data: SensorsModel) => {
+          console.log(data);
+          this.sensorsModel = data;
+        }
+      );
   }
 
 }
