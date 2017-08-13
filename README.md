@@ -2,7 +2,7 @@
 
 Frontend for the Honours Home Automation Project
 
-##Built with Angular (4)
+Built with Angular (4)
 
 ## Development server
 
