@@ -12,7 +12,8 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {FlowsComponent} from './home-page/flows/flows.component';
 import {FlowComponent} from './home-page/flows/flow/flow.component';
 import {HttpClientModule} from '@angular/common/http';
-import {SensorsService} from './home-page/components/sensors/sensors.service';
+import {PopoverModule} from 'ngx-popover';
+import {ComponentsService} from './home-page/components/components.service';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,11 @@ import {SensorsService} from './home-page/components/sensors/sensors.service';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    PopoverModule
   ],
   providers: [
-    SensorsService
+    ComponentsService
   ],
   bootstrap: [AppComponent]
 })

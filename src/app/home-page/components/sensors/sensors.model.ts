@@ -1,3 +1,0 @@
-interface SensorsModel {
-  'components': SensorModel[];
-}
