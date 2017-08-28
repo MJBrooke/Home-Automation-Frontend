@@ -7,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SensorsComponent implements OnInit {
 
-  @Input('sensorsModel') sensorsModel: SensorsModel;
+  @Input('sensorsModel') sensorsModel: ComponentModel[];
 
   constructor() {
   }

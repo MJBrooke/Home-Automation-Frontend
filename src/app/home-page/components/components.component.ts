@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ComponentsService} from './components.service';
+import {ComponentsService} from './components-service/components.service';
 
 @Component({
   selector: 'app-components',
@@ -8,30 +8,30 @@ import {ComponentsService} from './components.service';
 })
 export class ComponentsComponent implements OnInit {
 
-  sensorsModel: SensorsModel;
+  connectedComponents: ComponentsModel;
 
   constructor(private componentsService: ComponentsService) {
   }
 
   ngOnInit() {
-    this.getSensors();
+    this.getConnectedComponents();
   }
 
   addComponent($event) {
     this.componentsService.addComponent($event.target.value)
       .subscribe(
-        data => {
-          this.getSensors();
+        () => {
+          this.getConnectedComponents();
         }
       );
   }
 
-  getSensors() {
-    this.componentsService.getSensors()
+  getConnectedComponents() {
+    this.componentsService.getConnectedComponents()
       .subscribe(
-        (data: SensorsModel) => {
+        (data: ComponentsModel) => {
           console.log(data);
-          this.sensorsModel = data;
+          this.connectedComponents = data;
         }
       );
   }

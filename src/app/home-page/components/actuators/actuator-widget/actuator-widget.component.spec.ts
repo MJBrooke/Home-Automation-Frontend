@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ActuatorComponent } from './actuator.component';
+import { ActuatorWidgetComponent } from './actuator-widget.component';
 
 describe('ActuatorComponent', () => {
-  let component: ActuatorComponent;
-  let fixture: ComponentFixture<ActuatorComponent>;
+  let component: ActuatorWidgetComponent;
+  let fixture: ComponentFixture<ActuatorWidgetComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ActuatorComponent ]
+      declarations: [ ActuatorWidgetComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ActuatorComponent);
+    fixture = TestBed.createComponent(ActuatorWidgetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

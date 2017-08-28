@@ -5,7 +5,5 @@
 </div>
 
 <div class="row">
-  <app-actuator></app-actuator>
-  <app-actuator></app-actuator>
-  <app-actuator></app-actuator>
+  <app-actuator *ngFor="let actuator of actuatorsModel" [actuatorModel]="actuator"></app-actuator>
 </div>

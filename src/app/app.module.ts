@@ -6,14 +6,22 @@ import {HomePageComponent} from './home-page/home-page.component';
 import {ComponentsComponent} from './home-page/components/components.component';
 import {SensorsComponent} from './home-page/components/sensors/sensors.component';
 import {ActuatorsComponent} from './home-page/components/actuators/actuators.component';
-import {SensorComponent} from './home-page/components/sensors/sensor/sensor.component';
-import {ActuatorComponent} from './home-page/components/actuators/actuator/actuator.component';
+import {SensorWidgetComponent} from './home-page/components/sensors/sensor-widget/sensor-widget.component';
+import {ActuatorWidgetComponent} from './home-page/components/actuators/actuator-widget/actuator-widget.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {FlowsComponent} from './home-page/flows/flows.component';
 import {FlowComponent} from './home-page/flows/flow/flow.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PopoverModule} from 'ngx-popover';
-import {ComponentsService} from './home-page/components/components.service';
+import {ComponentsService} from './home-page/components/components-service/components.service';
+import {RouterModule, Routes} from '@angular/router';
+import {ComponentViewComponent} from './home-page/components/component-view/component-view.component';
+
+const appRoutes: Routes = [
+  {path: 'home', component: HomePageComponent},
+  {path: 'component/:id', component: ComponentViewComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full'}
+];
 
 @NgModule({
   declarations: [
@@ -22,14 +30,16 @@ import {ComponentsService} from './home-page/components/components.service';
     ComponentsComponent,
     SensorsComponent,
     ActuatorsComponent,
-    SensorComponent,
-    ActuatorComponent,
+    SensorWidgetComponent,
+    ActuatorWidgetComponent,
     NavbarComponent,
     FlowsComponent,
-    FlowComponent
+    FlowComponent,
+    ComponentViewComponent
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes),
     HttpClientModule,
     PopoverModule
   ],
@@ -38,4 +48,5 @@ import {ComponentsService} from './home-page/components/components.service';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
