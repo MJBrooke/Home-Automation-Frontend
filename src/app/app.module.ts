@@ -15,11 +15,11 @@ import {HttpClientModule} from '@angular/common/http';
 import {PopoverModule} from 'ngx-popover';
 import {ComponentsService} from './home-page/components/components-service/components.service';
 import {RouterModule, Routes} from '@angular/router';
-import {ComponentViewComponent} from './home-page/components/component-view/component-view.component';
+import {ComponentDetailComponent} from './home-page/components/component-detail/component-detail.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomePageComponent},
-  {path: 'component/:id', component: ComponentViewComponent},
+  {path: 'component/:id', component: ComponentDetailComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
@@ -35,7 +35,7 @@ const appRoutes: Routes = [
     NavbarComponent,
     FlowsComponent,
     FlowComponent,
-    ComponentViewComponent
+    ComponentDetailComponent
   ],
   imports: [
     BrowserModule,

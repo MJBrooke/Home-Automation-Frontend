@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 @Injectable()
 export class ComponentsService {
 
-  private root = '/component';
+  private readonly root = '/component';
 
   constructor(private http: HttpClient) {
   }
@@ -14,11 +14,23 @@ export class ComponentsService {
     return this.http.post(`${this.root}/add/${componentName}`, null);
   }
 
-  getConnectedComponents(): Observable<ComponentsModel> {
-    return this.http.get<ComponentsModel>(`${this.root}/connectedComponents`);
+  getSensors(): Observable<ComponentModel[]> {
+    return this.http.get<ComponentModel[]>(`${this.root}/sensor`);
+  }
+
+  getActuators(): Observable<ComponentModel[]> {
+    return this.http.get<ComponentModel[]>(`${this.root}/actuator`);
   }
 
   getComponentById(id: number): Observable<ComponentModel> {
     return this.http.get<ComponentModel>(`${this.root}/${id}`);
+  }
+
+  getCapabilityByComponentId(id: number): Observable<CapabilityModel[]> {
+    return this.http.get<CapabilityModel[]>(`${this.root}/${id}/capability`);
+  }
+
+  getComponentTypeByComponentId(id: number): Observable<ComponentTypeModel> {
+    return this.http.get<ComponentTypeModel>(`${this.root}/${id}/componentType`);
   }
 }

@@ -8,7 +8,8 @@ import {ComponentsService} from './components-service/components.service';
 })
 export class ComponentsComponent implements OnInit {
 
-  connectedComponents: ComponentsModel;
+  sensors: ComponentModel[];
+  actuators: ComponentModel[];
 
   constructor(private componentsService: ComponentsService) {
   }
@@ -27,11 +28,19 @@ export class ComponentsComponent implements OnInit {
   }
 
   getConnectedComponents() {
-    this.componentsService.getConnectedComponents()
+    this.componentsService.getSensors()
       .subscribe(
-        (data: ComponentsModel) => {
+        (data: ComponentModel[]) => {
           console.log(data);
-          this.connectedComponents = data;
+          this.sensors = data;
+        }
+      );
+
+    this.componentsService.getActuators()
+      .subscribe(
+        (data: ComponentModel[]) => {
+          console.log(data);
+          this.actuators = data;
         }
       );
   }

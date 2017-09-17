@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ComponentsService} from '../../components-service/components.service';
 
 @Component({
   selector: 'app-actuator',
@@ -9,9 +10,21 @@ export class ActuatorWidgetComponent implements OnInit {
 
   @Input('actuatorModel') actuatorModel: ComponentModel;
 
-  constructor() { }
+  capabilityModel: CapabilityModel[];
+
+  constructor(private componentsService: ComponentsService) { }
 
   ngOnInit() {
+    this.getActuatorCapabilities();
+  }
+
+  private getActuatorCapabilities() {
+    this.componentsService.getCapabilityByComponentId(this.actuatorModel.id)
+      .subscribe(
+        (data: CapabilityModel[]) => {
+          this.capabilityModel = data;
+        }
+      );
   }
 
 }

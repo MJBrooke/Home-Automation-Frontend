@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1>
+    {{componentData?.name}}
+    <a><span class="pull-right glyphicon glyphicon-remove text-danger" aria-hidden="true"></span></a>
+    <a><span class="pull-right glyphicon glyphicon-pause" aria-hidden="true"></span></a>
+  </h1>
+</div>
+
+<p><b>Description:</b></p>
+<div class="panel panel-default panel-footer">{{componentData?.description}}</div>
+
+<p><b>Capabilities:</b></p>
+<div class="panel panel-default panel-footer">
+  <ul>
+    <li *ngFor="let capability of capabilityData">
+      {{capability?.name}} (endpoint: /{{capability?.endpointUrl}})
+    </li>
+  </ul>
+</div>
+
+<p><b>Component Type:</b></p>
+<div class="panel panel-default panel-footer">{{componentTypeData?.name}}</div>
+
+<p><b>Endpoint Root:</b></p>
+<div class="panel panel-default panel-footer">/{{componentData?.endpointRoot}}</div>
+
+<p><b>Device ID:</b></p>
+<div class="panel panel-default panel-footer">{{componentData?.deviceId}}</div>
