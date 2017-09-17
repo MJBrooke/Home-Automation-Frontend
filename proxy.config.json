@@ -1,7 +1,17 @@
 {
-  "/component/*":{
-    "target":"http://localhost:8080",
-    "secure":false,
-    "logLevel":"debug"
+  "/component/*": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/flow/*": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
+  },
+  "/capability/*": {
+    "target": "http://localhost:8080",
+    "secure": false,
+    "logLevel": "debug"
   }
 }

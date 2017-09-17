@@ -2,20 +2,22 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {HomePageComponent} from './home-page/home-page.component';
-import {ComponentsComponent} from './home-page/components/components.component';
-import {SensorsComponent} from './home-page/components/sensors/sensors.component';
-import {ActuatorsComponent} from './home-page/components/actuators/actuators.component';
-import {SensorWidgetComponent} from './home-page/components/sensors/sensor-widget/sensor-widget.component';
-import {ActuatorWidgetComponent} from './home-page/components/actuators/actuator-widget/actuator-widget.component';
-import {NavbarComponent} from './navbar/navbar.component';
-import {FlowsComponent} from './home-page/flows/flows.component';
-import {FlowComponent} from './home-page/flows/flow/flow.component';
+import {HomePageComponent} from './component/home-page/home-page.component';
+import {ComponentsComponent} from './component/components/components.component';
+import {SensorsComponent} from './component/components/sensors/sensors.component';
+import {ActuatorsComponent} from './component/components/actuators/actuators.component';
+import {SensorWidgetComponent} from './component/components/sensors/sensor-widget/sensor-widget.component';
+import {ActuatorWidgetComponent} from './component/components/actuators/actuator-widget/actuator-widget.component';
+import {NavbarComponent} from './component/navbar/navbar.component';
+import {FlowsComponent} from './component/flows/flows.component';
+import {FlowComponent} from './component/flows/flow/flow.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PopoverModule} from 'ngx-popover';
-import {ComponentsService} from './home-page/components/components-service/components.service';
+import {ComponentsService} from './service/component/components.service';
 import {RouterModule, Routes} from '@angular/router';
-import {ComponentDetailComponent} from './home-page/components/component-detail/component-detail.component';
+import {ComponentDetailComponent} from './component/components/component-detail/component-detail.component';
+import {FlowService} from './service/flow/flow.service';
+import {CapabilityService} from './service/capability/capability.service';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomePageComponent},
@@ -44,7 +46,9 @@ const appRoutes: Routes = [
     PopoverModule
   ],
   providers: [
-    ComponentsService
+    ComponentsService,
+    FlowService,
+    CapabilityService
   ],
   bootstrap: [AppComponent]
 })
