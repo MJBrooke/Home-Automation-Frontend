@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CapabilityService} from '../../../service/capability/capability.service';
+import {CapabilityService} from '../../../service/capability.service';
 
 @Component({
   selector: 'app-flow',

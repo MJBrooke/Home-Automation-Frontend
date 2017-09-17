@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ComponentsService} from '../../../service/component/components.service';
+import {ComponentsService} from '../../../service/components.service';
 
 @Component({
   selector: 'app-component-detail',

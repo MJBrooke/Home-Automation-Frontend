@@ -13,11 +13,11 @@ import {FlowsComponent} from './component/flows/flows.component';
 import {FlowComponent} from './component/flows/flow/flow.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PopoverModule} from 'ngx-popover';
-import {ComponentsService} from './service/component/components.service';
+import {ComponentsService} from './service/components.service';
 import {RouterModule, Routes} from '@angular/router';
 import {ComponentDetailComponent} from './component/components/component-detail/component-detail.component';
-import {FlowService} from './service/flow/flow.service';
-import {CapabilityService} from './service/capability/capability.service';
+import {FlowService} from './service/flow.service';
+import {CapabilityService} from './service/capability.service';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomePageComponent},

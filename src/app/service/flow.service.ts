@@ -12,9 +12,4 @@ export class FlowService {
   getFlows(): Observable<FlowModel[]> {
     return this.http.get<FlowModel[]>(`${this.root}/`);
   }
-
-  getCapability(id: number): Observable<CapabilityModel> {
-    return this.http.get<CapabilityModel>(`${this.root}/${id}/sensorCapability`);
-  }
-
 }
