@@ -18,6 +18,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {ComponentDetailComponent} from './component/components/component-detail/component-detail.component';
 import {FlowService} from './service/flow.service';
 import {CapabilityService} from './service/capability.service';
+import {AddComponentComponent} from './component/components/add-component/add-component.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomePageComponent},
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     FlowsComponent,
     FlowComponent,
-    ComponentDetailComponent
+    ComponentDetailComponent,
+    AddComponentComponent
   ],
   imports: [
     BrowserModule,

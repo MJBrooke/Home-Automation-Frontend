@@ -18,20 +18,10 @@ export class ComponentsComponent implements OnInit {
     this.getConnectedComponents();
   }
 
-  addComponent($event) {
-    this.componentsService.addComponent($event.target.value)
-      .subscribe(
-        () => {
-          this.getConnectedComponents();
-        }
-      );
-  }
-
   getConnectedComponents() {
     this.componentsService.getSensors()
       .subscribe(
         (data: ComponentModel[]) => {
-          console.log(data);
           this.sensors = data;
         }
       );
@@ -39,7 +29,6 @@ export class ComponentsComponent implements OnInit {
     this.componentsService.getActuators()
       .subscribe(
         (data: ComponentModel[]) => {
-          console.log(data);
           this.actuators = data;
         }
       );

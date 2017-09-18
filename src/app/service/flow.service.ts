@@ -10,6 +10,6 @@ export class FlowService {
   constructor(private http: HttpClient) { }
 
   getFlows(): Observable<FlowModel[]> {
-    return this.http.get<FlowModel[]>(`${this.root}/`);
+    return this.http.get<FlowModel[]>(`${this.root}`);
   }
 }

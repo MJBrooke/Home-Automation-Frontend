@@ -1,7 +1,7 @@
 <div class="page-header">
   <h1>Components
     <small>All Currently Connected Home Automation Components</small>
-    <span class="pull-right glyphicon glyphicon-plus text-info" [popover]="addComponentPopover"></span>
+    <app-add-component (componentAdded)="getConnectedComponents()"></app-add-component>
   </h1>
 </div>
 
@@ -11,10 +11,3 @@
     <app-actuators [actuatorsModel]="actuators"></app-actuators>
   </div>
 </div>
-
-<popover-content #addComponentPopover title="Add Component" placement="left">
-  <div class="input-group">
-    <span class="input-group-addon" id="basic-addon1">+</span>
-    <input (keyup.enter)="addComponent($event)" class="form-control" placeholder="Component Name" aria-describedby="basic-addon1">
-  </div>
-</popover-content>

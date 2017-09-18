@@ -1,0 +1,13 @@
+<span class="pull-right glyphicon glyphicon-plus text-info" [popover]="addComponentPopover"></span>
+
+<popover-content #addComponentPopover title="Add Component" placement="left" [closeOnClickOutside]="true">
+  <div class="progress" *ngIf="addComponentLoading">
+    <div class="progress-bar progress-bar-striped active" role="progressbar" style="width: 100%"></div>
+  </div>
+
+  <p *ngIf="addComponentError">Duplicate component!</p>
+  <div class="input-group" *ngIf="!addComponentLoading">
+    <span class="input-group-addon" id="basic-addon1">+</span>
+    <input (keyup.enter)="addComponent($event)" class="form-control" placeholder="Component Name" aria-describedby="basic-addon1">
+  </div>
+</popover-content>
