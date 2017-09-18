@@ -9,7 +9,7 @@ export class CapabilityService {
   constructor(private http: HttpClient) { }
 
   getCapabilityById(id: number, callback: (data) => void) {
-    return this.http.get<CapabilityModel>(`${this.root}/${id}`).subscribe(
+    this.http.get<CapabilityModel>(`${this.root}/${id}`).subscribe(
       (data: CapabilityModel) => {
         callback(data);
       }

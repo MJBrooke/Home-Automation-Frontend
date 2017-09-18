@@ -16,12 +16,12 @@ export class FlowComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.capabilityService.getCapabilityById(this.flow.sensorId, (data: CapabilityModel) => {
+    this.capabilityService.getCapabilityById(this.flow.sensorCapabilityId, (data: CapabilityModel) => {
         this.sensorCapability = data;
       }
     );
 
-    this.capabilityService.getCapabilityById(this.flow.actuatorId, (data: CapabilityModel) => {
+    this.capabilityService.getCapabilityById(this.flow.actuatorCapabilityId, (data: CapabilityModel) => {
         this.actuatorCapability = data;
       }
     );

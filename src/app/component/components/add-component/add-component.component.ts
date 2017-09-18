@@ -27,8 +27,7 @@ export class AddComponentComponent{
             this.addComponentLoading = false;
             this.componentAdded.emit();
           },
-          err => {
-            console.log(err);
+          () => {
             this.addComponentError = true;
             this.addComponentLoading = false;
           }

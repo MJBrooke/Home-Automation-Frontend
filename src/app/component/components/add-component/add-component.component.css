@@ -5,3 +5,7 @@ p {
 .progress {
   width: 244px;
 }
+
+span {
+  cursor: pointer;
+}

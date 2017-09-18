@@ -19,10 +19,13 @@ import {ComponentDetailComponent} from './component/components/component-detail/
 import {FlowService} from './service/flow.service';
 import {CapabilityService} from './service/capability.service';
 import {AddComponentComponent} from './component/components/add-component/add-component.component';
+import {AddFlowComponent} from './component/flows/add-flow/add-flow.component';
+import {FormsModule} from '@angular/forms';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'component/:id', component: ComponentDetailComponent},
+  {path: 'addFlow', component: AddFlowComponent},
   {path: '', redirectTo: 'home', pathMatch: 'full'}
 ];
 
@@ -39,13 +42,15 @@ const appRoutes: Routes = [
     FlowsComponent,
     FlowComponent,
     ComponentDetailComponent,
-    AddComponentComponent
+    AddComponentComponent,
+    AddFlowComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    PopoverModule
+    PopoverModule,
+    FormsModule
   ],
   providers: [
     ComponentsService,

@@ -19,18 +19,12 @@ export class ComponentsComponent implements OnInit {
   }
 
   getConnectedComponents() {
-    this.componentsService.getSensors()
-      .subscribe(
-        (data: ComponentModel[]) => {
-          this.sensors = data;
-        }
-      );
+    this.componentsService.getSensors((data: ComponentModel[]) => {
+      this.sensors = data;
+    });
 
-    this.componentsService.getActuators()
-      .subscribe(
-        (data: ComponentModel[]) => {
-          this.actuators = data;
-        }
-      );
+    this.componentsService.getActuators((data: ComponentModel[]) => {
+      this.actuators = data;
+    });
   }
 }

@@ -12,19 +12,18 @@ export class ActuatorWidgetComponent implements OnInit {
 
   capabilityModel: CapabilityModel[];
 
-  constructor(private componentsService: ComponentsService) { }
+  constructor(private componentsService: ComponentsService) {
+  }
 
   ngOnInit() {
     this.getActuatorCapabilities();
   }
 
   private getActuatorCapabilities() {
-    this.componentsService.getCapabilityByComponentId(this.actuatorModel.id)
-      .subscribe(
-        (data: CapabilityModel[]) => {
-          this.capabilityModel = data;
-        }
-      );
+    this.componentsService.getCapabilityByComponentId(this.actuatorModel.id, (data: CapabilityModel[]) => {
+        this.capabilityModel = data;
+      }
+    );
   }
 
 }

@@ -1,0 +1,118 @@
+<div class="page-header">
+  <h1>Create Flow</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-11 col-md-offset-1">
+
+    <form #f="ngForm" class="form" (ngSubmit)="onSubmit()">
+      <pre>{{f.value | json}}</pre>
+      <pre>{{model | json}}</pre>
+
+      <div class="page-header">
+        <h2>1. Flow Details
+          <small>Setup the name and description for quick reference</small>
+        </h2>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <div class="input-group">
+          <span class="input-group-addon"> > </span>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="model.name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <div class="input-group">
+          <span class="input-group-addon"> > </span>
+          <input type="text" class="form-control" id="description" name="description" [(ngModel)]="model.description">
+        </div>
+      </div>
+
+      <div class="page-header">
+        <h2>2. Select Sensor
+          <small>Setup the trigger/threshold values to trigger an actuator</small>
+        </h2>
+      </div>
+
+      <div class="form-group">
+        <label for="sensor-select">Sensor:</label>
+        <select class="form-control"
+                id="sensor-select"
+                name="sensor"
+                [(ngModel)]="model.sensorId"
+                (change)="getSensorCapabilities($event.target.value)">
+          <option value="">Please select a sensor...</option>
+          <option *ngFor="let sensor of sensors" [value]="sensor.id">{{sensor.name}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <label for="sensor-capability">Capability:</label>
+          <p *ngIf="sensorCapabilities.length === 0">&emsp;Please select a sensor</p>
+          <div class="radio" *ngFor="let capability of sensorCapabilities">
+            <label>
+              <input id="sensor-capability" type="radio" name="sensorCapability" [value]="capability.id" [(ngModel)]="model.sensorCapabilityId">
+              {{capability?.name}}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="sensor-value">Trigger Value:</label>
+        <div class="input-group">
+          <span class="input-group-addon"> > </span>
+          <input type="number" class="form-control" id="sensor-value" name="sensorValue" [(ngModel)]="model.sensorValue">
+        </div>
+      </div>
+
+      <div class="page-header">
+        <h2>3. Select Actuator
+          <small>Setup the actuation that should occur for the selected sensor trigger</small>
+        </h2>
+      </div>
+
+      <div class="form-group">
+        <label for="actuator-select">Actuator:</label>
+        <select class="form-control"
+                id="actuator-select"
+                name="actuator"
+                [(ngModel)]="model.actuatorId"
+                (change)="getActuatorCapabilities($event.target.value)">
+          <option value="">Please select an actuator...</option>
+          <option *ngFor="let actuator of actuators" [value]="actuator.id">{{actuator.name}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <label for="actuator-capability">Capability:</label>
+          <p *ngIf="actuatorCapabilities.length === 0">&emsp;Please select an actuator</p>
+          <div class="radio" *ngFor="let capability of actuatorCapabilities">
+            <label>
+              <input type="radio" id="actuator-capability" name="actuatorCapability" [value]="capability.id" [(ngModel)]="model.actuatorCapabilityId">
+              {{capability?.name}}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="actuator-value">Capability Value:</label>
+        <div class="input-group">
+          <span class="input-group-addon"> > </span>
+          <input type="number" class="form-control" id="actuator-value" name="actuatorValue" [(ngModel)]="model.actuationValue">
+        </div>
+      </div>
+
+      <div class="pull-right">
+        <a class="btn btn-warning" (click)="clearForm()">Clear Choices</a>
+        <button class="btn btn-success" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

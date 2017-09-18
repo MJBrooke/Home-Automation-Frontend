@@ -34,8 +34,7 @@ export class ComponentDetailComponent implements OnInit {
   }
 
   private getComponentCapabilityData() {
-    this.componentsService.getCapabilityByComponentId(this.componentData.id).subscribe(
-      (data: CapabilityModel[]) => {
+    this.componentsService.getCapabilityByComponentId(this.componentData.id, (data: CapabilityModel[]) => {
         this.capabilityData = data;
       }
     );
