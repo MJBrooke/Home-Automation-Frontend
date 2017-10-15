@@ -6,8 +6,7 @@
   <div class="col-md-11 col-md-offset-1">
 
     <form #f="ngForm" class="form" (ngSubmit)="onSubmit()">
-      <pre>{{f.value | json}}</pre>
-      <pre>{{model | json}}</pre>
+      <!--<pre>{{model | json}}</pre>-->
 
       <div class="page-header">
         <h2>1. Flow Details
@@ -55,7 +54,8 @@
           <p *ngIf="sensorCapabilities.length === 0">&emsp;Please select a sensor</p>
           <div class="radio" *ngFor="let capability of sensorCapabilities">
             <label>
-              <input id="sensor-capability" type="radio" name="sensorCapability" [value]="capability.id" [(ngModel)]="model.sensorCapabilityId">
+              <input id="sensor-capability" type="radio" name="sensorCapability" [value]="capability.id"
+                     [(ngModel)]="model.sensorCapabilityId">
               {{capability?.name}}
             </label>
           </div>
@@ -63,10 +63,26 @@
       </div>
 
       <div class="form-group">
+        <div class="input-group">
+          <label for="sensorOperation">Operation:</label>
+          <br>
+
+          <label class="radio-inline">
+            <input type="radio" id="sensorOperation" name="sensorOperation" value="true" [(ngModel)]="model.sensorMoreThan"> More Than
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="inlineRadioOptions" value="false" [(ngModel)]="model.sensorMoreThan"> Less Than
+          </label>
+        </div>
+      </div>
+
+
+      <div class="form-group">
         <label for="sensor-value">Trigger Value:</label>
         <div class="input-group">
           <span class="input-group-addon"> > </span>
-          <input type="number" class="form-control" id="sensor-value" name="sensorValue" [(ngModel)]="model.sensorValue">
+          <input type="number" class="form-control" id="sensor-value" name="sensorValue"
+                 [(ngModel)]="model.sensorValue">
         </div>
       </div>
 
@@ -94,7 +110,8 @@
           <p *ngIf="actuatorCapabilities.length === 0">&emsp;Please select an actuator</p>
           <div class="radio" *ngFor="let capability of actuatorCapabilities">
             <label>
-              <input type="radio" id="actuator-capability" name="actuatorCapability" [value]="capability.id" [(ngModel)]="model.actuatorCapabilityId">
+              <input type="radio" id="actuator-capability" name="actuatorCapability" [value]="capability.id"
+                     [(ngModel)]="model.actuatorCapabilityId">
               {{capability?.name}}
             </label>
           </div>
@@ -105,7 +122,8 @@
         <label for="actuator-value">Capability Value:</label>
         <div class="input-group">
           <span class="input-group-addon"> > </span>
-          <input type="number" class="form-control" id="actuator-value" name="actuatorValue" [(ngModel)]="model.actuationValue">
+          <input type="number" class="form-control" id="actuator-value" name="actuatorValue"
+                 [(ngModel)]="model.actuationValue">
         </div>
       </div>
 

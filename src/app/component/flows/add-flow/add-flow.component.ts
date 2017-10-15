@@ -9,6 +9,7 @@ export class FlowForm {
               public sensorId: string = '',
               public sensorCapabilityId: string = '',
               public sensorValue: string = '',
+              public sensorMoreThan: string = '',
               public actuatorId: string = '',
               public actuatorCapabilityId: string = '',
               public actuationValue: string = '', ) {
