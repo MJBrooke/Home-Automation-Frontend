@@ -11,8 +11,12 @@
     </div>
     <div class="panel-body">
       <p>{{flow?.description}}</p>
-      <p><strong>Trigger:</strong> {{sensorCapability?.name}}</p>
-      <p><strong>Actuator:</strong> {{actuatorCapability?.name}}</p>
+      <p><strong>Sensor:</strong> {{sensor?.name}}</p>
+      <p><strong>&emsp;Trigger:</strong> {{sensorCapability?.name}}</p>
+      <p><strong>&emsp;Value:</strong> {{flow?.sensorValue}}</p>
+      <p><strong>Actuator:</strong> {{actuator?.name}}</p>
+      <p><strong>&emsp;If value met:</strong> {{actuatorCapabilityIdIfSensorValMet?.name}}</p>
+      <p><strong>&emsp;Else:</strong> {{actuatorCapabilityIdIfSensorValNotMet?.name}}</p>
     </div>
   </div>
 </div>

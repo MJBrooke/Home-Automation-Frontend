@@ -25,5 +25,4 @@ export class ActuatorWidgetComponent implements OnInit {
       }
     );
   }
-
 }

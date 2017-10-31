@@ -11,6 +11,12 @@
     </div>
     <div class="panel-body">
       <p>{{sensorModel?.description}}</p>
+      <p><strong>Sensors:</strong></p>
+      <ul>
+        <li *ngFor="let capability of capabilityModel">
+          {{capability?.name}}
+        </li>
+      </ul>
     </div>
   </div>
 </div>

@@ -8,6 +8,7 @@ interface FlowModel {
   sensorValue: number;
 
   actuatorId: number;
-  actuatorCapabilityId: number;
+  actuatorCapabilityIdIfSensorValMet: number;
+  actuatorCapabilityIdIfSensorValNotMet: number;
   actuationValue: number;
 }

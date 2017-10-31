@@ -11,8 +11,9 @@ export class FlowForm {
               public sensorValue: string = '',
               public sensorMoreThan: string = '',
               public actuatorId: string = '',
-              public actuatorCapabilityId: string = '',
-              public actuationValue: string = '', ) {
+              public actuatorCapabilityIdIfSensorValMet: string = '',
+              public actuatorCapabilityIdIfSensorValNotMet: string = '',
+              public actuationValue: number = 0 ) {
   }
 }
 
@@ -66,7 +67,8 @@ export class AddFlowComponent implements OnInit {
   }
 
   getActuatorCapabilities(actuatorId: number) {
-    this.model.actuatorCapabilityId = '';
+    this.model.actuatorCapabilityIdIfSensorValMet = '';
+    this.model.actuatorCapabilityIdIfSensorValNotMet = '';
 
     if (!actuatorId) {
       this.actuatorCapabilities = [];

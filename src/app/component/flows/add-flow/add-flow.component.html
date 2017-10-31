@@ -106,12 +106,26 @@
 
       <div class="form-group">
         <div class="input-group">
-          <label for="actuator-capability">Capability:</label>
+          <label for="actuator-capability-if-met">Capability if sensor trigger is met:</label>
           <p *ngIf="actuatorCapabilities.length === 0">&emsp;Please select an actuator</p>
           <div class="radio" *ngFor="let capability of actuatorCapabilities">
             <label>
-              <input type="radio" id="actuator-capability" name="actuatorCapability" [value]="capability.id"
-                     [(ngModel)]="model.actuatorCapabilityId">
+              <input type="radio" id="actuator-capability-if-met" name="actuatorCapabilityIdIfSensorValMet" [value]="capability.id"
+                     [(ngModel)]="model.actuatorCapabilityIdIfSensorValMet">
+              {{capability?.name}}
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="input-group">
+          <label for="actuator-capability-if-not-met">Capability if sensor trigger is not met:</label>
+          <p *ngIf="actuatorCapabilities.length === 0">&emsp;Please select an actuator</p>
+          <div class="radio" *ngFor="let capability of actuatorCapabilities">
+            <label>
+              <input type="radio" id="actuator-capability-if-not-met" name="actuatorCapabilityIdIfSensorValNotMet" [value]="capability.id"
+                     [(ngModel)]="model.actuatorCapabilityIdIfSensorValNotMet">
               {{capability?.name}}
             </label>
           </div>
@@ -127,7 +141,7 @@
         </div>
       </div>
 
-      <div class="pull-right">
+      <div class="pull-right" style="margin-bottom: 10px;">
         <a class="btn btn-warning" (click)="clearForm()">Clear Choices</a>
         <button class="btn btn-success" type="submit">Submit</button>
       </div>
